@@ -65,3 +65,5 @@ function startNewGame() {
 // If the scores are equal, the highlight is removed from both scores because neither team is winning.
 
 // starNewGame logic is reset the variables homeCount and guestCount back to 0, updated it via textContent and also used the homeCountEl.classList.remove the CSS class leader so when it resets the screen goes back to 0 :) 
+
+
