@@ -1,50 +1,29 @@
-// homeCount function logic:
-let homeCountEl = document.getElementById("home-count-el")
-let guestCountEl = document.getElementById("guest-count-el")
-let newGameButton = document.getElementById("new-game-btn-el")
+// Select elements
+let homeCountEl = document.getElementById("home-count-el");
+let guestCountEl = document.getElementById("guest-count-el");
+let newGameButton = document.getElementById("new-game-btn-el");
 
-let homeCount = 0
-let guestCount = 0
+let homeCount = 0;
+let guestCount = 0;
 
-// homeCount function logic:
+// Function to increment HOME score
 function incrementHome(value) {
-    homeCount += value
-    homeCountEl.textContent = homeCount
+    homeCount += value;
+    homeCountEl.textContent = homeCount;
     
-    if (homeCount > guestCount) {
-        homeCountEl.classList.add("leader")
-        guestCountEl.classList.remove("leader")
-        
-    } else if (guestCount > homeCount) {
-        guestCountEl.classList.add("leader")
-        homeCountEl.classList.remove("leader")
-        
-    } else {
-        homeCountEl.classList.remove("leader")
-        guestCountEl.classList.remove("leader")
-        
-    }
+    // Toggle "leader" class based on current scores
+    homeCountEl.classList.toggle("leader", homeCount > guestCount);
+    guestCountEl.classList.toggle("leader", guestCount > homeCount);
 }
 
-
-// guestCount function logic:
+// Function to increment GUEST score
 function incrementGuest(value) {
-    guestCount += value
-    guestCountEl.textContent = guestCount
+    guestCount += value;
+    guestCountEl.textContent = guestCount;
     
-    if (guestCount > homeCount) {
-        guestCountEl.classList.add("leader")
-        homeCountEl.classList.remove("leader")
-        
-    } else if (homeCount > guestCount) {
-        homeCountEl.classList.add("leader")
-        guestCountEl.classList.remove("leader")
-        
-    } else {
-        guestCountEl.classList.remove("leader")
-        homeCountEl.classList.remove("leader")
-        
-    }
+    // Toggle "leader" class based on current scores
+    homeCountEl.classList.toggle("leader", homeCount > guestCount);
+    guestCountEl.classList.toggle("leader", guestCount > homeCount);
 }
 
 // newGameButton logic:
